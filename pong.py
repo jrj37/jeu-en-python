@@ -17,11 +17,13 @@ class Balle:
     def touche(self):
         x1_pong, y1_pong, x2_pong, y2_pong = canvas.coords(self.__pong)
         x1_balle, y1_balle, x2_balle, y2_balle = canvas.coords(self.__ball)
-        print("pong: "+str(x1_pong)+ " "+str(y1_pong))
-        print("balle: "+str(x1_balle)+ " "+ str(y1_balle))
+        print("pong: "+str(x1_pong)+ " "+str(y1_pong)+" "+str(x2_pong)+ " "+str(y2_pong))
+        print("balle: "+str(x1_balle)+ " "+ str(y1_balle)+" "+str(x2_balle)+ " "+str(y2_balle))
         print(balle.get_dir())
-        if x1_pong==x1_balle :
-            balle.set_dir(-1)
+        
+        if (y2_balle >= y1_pong) and (y1_balle <= y2_pong) and (x2_balle >= x1_pong) and (x1_balle <= x2_pong):
+            self.set_dir(-1)  # Reverse the direction
+ 
 
     def bouge(self):
         self.touche()
